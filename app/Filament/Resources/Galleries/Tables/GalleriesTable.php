@@ -10,6 +10,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\IconColumn;
 
 class GalleriesTable
 {
@@ -31,6 +32,10 @@ class GalleriesTable
                     ->width(120),
                 TextColumn::make('type')
                     ->label('Tipe')
+                    ->sortable(),
+                IconColumn::make('is_hero')
+                    ->label('Hero')
+                    ->boolean()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->label('Dibuat Pada')

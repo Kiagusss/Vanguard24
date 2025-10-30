@@ -7,6 +7,7 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 
 class GalleryForm
 {
@@ -34,6 +35,11 @@ class GalleryForm
     ->visibility('public')
     ->imageEditor()
     ->previewable(true)
+            ,
+            Toggle::make('is_hero')
+                ->label('Hero')
+                ->helperText('Tandai foto ini untuk muncul di hero slideshow')
+                ->inline(false),
         ]);
     }
 }

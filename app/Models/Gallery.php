@@ -14,6 +14,11 @@ class Gallery extends Model
         'title',
         'type',     // photo | video
         'file',
+        'is_hero',
+    ];
+
+    protected $casts = [
+        'is_hero' => 'boolean',
     ];
 
     /**
@@ -26,6 +31,22 @@ class Gallery extends Model
         }
 
         return Storage::url($this->file);
+    }
+
+    /**
+     * Backwards-compatible accessor so templates using ->image still work.
+     */
+    public function getImageAttribute(): ?string
+    {
+        return $this->getFileUrlAttribute();
+    }
+
+    /**
+     * Backwards-compatible accessor for caption -> maps to title.
+     */
+    public function getCaptionAttribute(): ?string
+    {
+        return $this->title ?? null;
     }
 
     /**
