@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('title');
             $table->enum('type', ['photo', 'video']);
             $table->string('file'); // path file upload (disimpan di storage/public/galleries)
+            $table->boolean('is_hero')->default(false);
             $table->timestamps();
         });
     }
