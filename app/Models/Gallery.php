@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
+class Gallery extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'type',     // photo | video
+        'file',
+    ];
+
+    /**
+     * Accessor untuk menampilkan URL file yang tersimpan di storage/public/galleries.
+     */
+    public function getFileUrlAttribute(): ?string
+    {
+        if (! $this->file) {
+            return null;
+        }
+
+        return Storage::url($this->file);
+    }
+
+    /**
+     * Helper untuk cek apakah media ini adalah foto.
+     */
+    public function isPhoto(): bool
+    {
+        return $this->type === 'photo';
+    }
+
+    /**
+     * Helper untuk cek apakah media ini adalah video.
+     */
+    public function isVideo(): bool
+    {
+        return $this->type === 'video';
+    }
+}
