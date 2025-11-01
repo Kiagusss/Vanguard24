@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Galleries;
+namespace App\Filament\Resources;
 
 use App\Filament\Resources\Galleries\Pages\CreateGallery;
 use App\Filament\Resources\Galleries\Pages\EditGallery;

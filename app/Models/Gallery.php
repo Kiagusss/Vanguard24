@@ -15,10 +15,13 @@ class Gallery extends Model
         'type',     // photo | video
         'file',
         'is_hero',
+        'is_achievement',
+        'hero_order',
     ];
 
     protected $casts = [
         'is_hero' => 'boolean',
+        'is_achievement' => 'boolean',
     ];
 
     /**

@@ -28,17 +28,21 @@ class GalleryForm
                 ->required(),
 
             FileUpload::make('file')
-                  ->label('Media')
-    ->required()
-    ->disk('public')
-    ->directory('galleries')
-    ->visibility('public')
-    ->imageEditor()
-    ->previewable(true)
-            ,
+                ->label('Media')
+                ->required()
+                ->disk('public')
+                ->directory('galleries')
+                ->visibility('public')
+                ->imageEditor()
+                ->previewable(true),
             Toggle::make('is_hero')
                 ->label('Hero')
-                ->helperText('Tandai foto ini untuk muncul di hero slideshow')
+                ->helperText('Tandai foto ini untuk muncul di bagian About')
+                ->inline(false),
+
+            Toggle::make('is_achievement')
+                ->label('Prestasi')
+                ->helperText('Tandai foto ini sebagai foto prestasi')
                 ->inline(false),
         ]);
     }
