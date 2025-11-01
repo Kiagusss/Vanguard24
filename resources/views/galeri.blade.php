@@ -20,7 +20,7 @@
     <header>
         <nav>
             <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="{{asset('images/Vanguard-Logo.jpg')}}" alt="as" width="50px" height="50px">
+                <img src="{{asset('images/Vanguard-Logo2.jpg')}}" alt="as" width="50px" height="50px">
                     <a href="#" class="logo">Vanguard</a>
             </div>
         
