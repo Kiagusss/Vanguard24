@@ -10,13 +10,14 @@ class GaleriController extends Controller
     public function index()
     {
         $photos = Gallery::latest()->get();
-        $heroPhotos = Gallery::where('is_hero', true)->latest()->get();
+        $heroImage = Gallery::where('is_hero', true)->latest()->first();
+        $achievementPhotos = Gallery::where('is_achievement', true)->latest()->get();
 
-        // If no explicit hero photos, fallback to first N gallery images
-        if ($heroPhotos->isEmpty()) {
-            $heroPhotos = $photos->take(6);
+        // If no hero image set, use the latest image as fallback
+        if (!$heroImage) {
+            $heroImage = $photos->first();
         }
 
-        return view('galeri', compact('photos', 'heroPhotos'));
+        return view('galeri', compact('photos', 'heroImage', 'achievementPhotos'));
     }
 }

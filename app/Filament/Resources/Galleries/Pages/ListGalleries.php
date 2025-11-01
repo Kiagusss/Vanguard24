@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Galleries\Pages;
 
-use App\Filament\Resources\Galleries\GalleryResource;
+use App\Filament\Resources\GalleryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

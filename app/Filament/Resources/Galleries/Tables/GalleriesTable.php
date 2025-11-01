@@ -37,6 +37,10 @@ class GalleriesTable
                     ->label('Hero')
                     ->boolean()
                     ->sortable(),
+                IconColumn::make('is_achievement')
+                    ->label('Prestasi')
+                    ->boolean()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->label('Dibuat Pada')
                     ->dateTime('d M Y H:i'),

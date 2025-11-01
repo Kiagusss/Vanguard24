@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamLine - Workflow Automation Made Simple</title>
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script
-  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
-  type="module"
-  
-></script>
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
+        type="module"></script>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -22,15 +21,16 @@
             <div style="display: flex; flex-direction: row; align-items: center;">
                 <img src="{{asset('images/Vanguard-Logo2.jpg')}}" alt="as" width="50px" height="50px">
                     <a href="#" class="logo">Vanguard</a>
+
             </div>
-        
+
             <ul class="nav-links">
                 <li><a href="#features">About</a></li>
                 <li><a href="#testimonials">Leaders</a></li>
                 <li><a href="#pricing">Gallery</a></li>
                 <li><a href="#contact">Notes</a></li>
             </ul>
-         
+
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -40,31 +40,31 @@
     </header>
 
     <!-- Hero Section -->
-<section class="hero">
-  <h1 id="typing-text"></h1>
-  <p class="animate__animated animate__fadeInUp">
-    We Code, We Create, We Connect — Informatics 2024 <br>
-    Sultan Ageng Tirtayasa University.
-  </p>
-  <div class="demo-container animate__animated animate__fadeInUp">
-    <div class="text-flip-wrapper animate__animated animate__fadeInUp">
-      <span class="static-text animate__animated animate__fadeInUp">We Are </span>
-      <span class="flip-box">
-        <span class="flip-text" id="flipText">Vanguard 24</span>
-      </span>
-    </div>
-  </div>
-  <div style="height: 100px"></div>
-  <div class="hero-buttons animate__animated animate__fadeInUp">
-    <dotlottie-wc
-      src="https://lottie.host/691b7ca9-ff48-4198-a0fc-9c847a62fe44/B6qhw0lnbE.lottie"
-      style="width: 50px; height: 50px;"
-      autoplay
-      loop>
-    </dotlottie-wc>
-    <p style="font-size: 15px">Scroll To View More</p>
-  </div>
-</section>
+    <section class="hero">
+        <h1 id="typing-text"></h1>
+        <p class="animate__animated animate__fadeInUp">
+            We Code, We Create, We Connect — Informatics 2024 <br>
+            Sultan Ageng Tirtayasa University.
+        </p>
+        <div class="demo-container animate__animated animate__fadeInUp">
+            <div class="text-flip-wrapper animate__animated animate__fadeInUp">
+                <span class="static-text animate__animated animate__fadeInUp">We Are </span>
+                <span class="flip-box">
+                    <span class="flip-text" id="flipText">Vanguard 24</span>
+                </span>
+            </div>
+        </div>
+        <div style="height: 100px"></div>
+        <div class="hero-buttons animate__animated animate__fadeInUp">
+            <dotlottie-wc
+                src="https://lottie.host/691b7ca9-ff48-4198-a0fc-9c847a62fe44/B6qhw0lnbE.lottie"
+                style="width: 50px; height: 50px;"
+                autoplay
+                loop>
+            </dotlottie-wc>
+            <p style="font-size: 15px">Scroll To View More</p>
+        </div>
+    </section>
 
 
     <!-- Features Section -->
@@ -72,32 +72,31 @@
         <div class="features-container">
             <h2 class="section-title">About Vanguard 24</h2>
             <p class="section-subtitle">Every words that meaning about us</p>
-<!-- 🔹 Big Image in the Middle -->
-    <div class="features-image-wrapper">
-      <img
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-        alt="Vanguard 24 Informatics"
-        class="features-image"
-      />
-    </div>
+            <!-- 🔹 Big Image in the Middle -->
+            <div class="features-image-wrapper">
+                <img
+                    src="{{ $heroImage ? Storage::url($heroImage->file) : 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d' }}"
+                    alt="{{ $heroImage ? $heroImage->title : 'Vanguard 24 Informatics' }}"
+                    class="features-image" />
+            </div>
 
-    <!-- 🔹 Text About Informatics 24 -->
-    <div class="features-description">
-      <p>
-        We are <strong>Informatics 2024</strong> — a collective of innovators,
-        dreamers, and creators from Sultan Ageng Tirtayasa University.
-        Together, we learn, code, and build the future through technology and
-        collaboration. Vanguard 24 stands for unity, strength, and the pursuit
-        of excellence — because we believe that every line of code is a story
-        of progress.
-      </p>
-    </div>
+            <!-- 🔹 Text About Informatics 24 -->
+            <div class="features-description">
+                <p>
+                    We are <strong>Informatics 2024</strong> — a collective of innovators,
+                    dreamers, and creators from Sultan Ageng Tirtayasa University.
+                    Together, we learn, code, and build the future through technology and
+                    collaboration. Vanguard 24 stands for unity, strength, and the pursuit
+                    of excellence — because we believe that every line of code is a story
+                    of progress.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        
+
     </section>
 
     <!-- Pricing Section -->
@@ -223,7 +222,7 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             navButtons.classList.toggle('active');
-            
+
             // Animate hamburger
             const spans = hamburger.querySelectorAll('span');
             spans[0].style.transform = navLinks.classList.contains('active') ? 'rotate(45deg) translate(8px, 8px)' : 'none';
@@ -245,7 +244,7 @@
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -263,13 +262,13 @@
 
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             if (scrollTop > 50) {
                 header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
             }
-            
+
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
@@ -282,74 +281,74 @@
         });
 
         class TextFlip {
-  constructor(options = {}) {
-    this.textElement = document.getElementById("flipText")
-    this.words = options.words || ["Sleepers", "Coders", "Strongest", "Innitiators"]
-    this.duration = options.duration || 3000
-    this.currentIndex = 0
-    this.init()
-  }
+            constructor(options = {}) {
+                this.textElement = document.getElementById("flipText")
+                this.words = options.words || ["Sleepers", "Coders", "Strongest", "Innitiators"]
+                this.duration = options.duration || 3000
+                this.currentIndex = 0
+                this.init()
+            }
 
-  init() {
-    this.setNextWord()
-  }
+            init() {
+                this.setNextWord()
+            }
 
-  setNextWord() {
-    const exitClass = "exit"
+            setNextWord() {
+                const exitClass = "exit"
 
-    // Add exit animation
-    this.textElement.classList.add(exitClass)
+                // Add exit animation
+                this.textElement.classList.add(exitClass)
 
-    // Wait for exit animation to finish
-    setTimeout(() => {
-      // Update text
-      this.currentIndex = (this.currentIndex + 1) % this.words.length
-      this.textElement.textContent = this.words[this.currentIndex]
+                // Wait for exit animation to finish
+                setTimeout(() => {
+                    // Update text
+                    this.currentIndex = (this.currentIndex + 1) % this.words.length
+                    this.textElement.textContent = this.words[this.currentIndex]
 
-      // Remove exit class to trigger entry animation
-      this.textElement.classList.remove(exitClass)
+                    // Remove exit class to trigger entry animation
+                    this.textElement.classList.remove(exitClass)
 
-      // Schedule next word change
-      setTimeout(() => this.setNextWord(), this.duration)
-    }, 500) // Duration of exit animation
-  }
+                    // Schedule next word change
+                    setTimeout(() => this.setNextWord(), this.duration)
+                }, 500) // Duration of exit animation
+            }
 
-  setWords(newWords) {
-    this.words = newWords
-  }
+            setWords(newWords) {
+                this.words = newWords
+            }
 
-  setDuration(newDuration) {
-    this.duration = newDuration
-  }
-}
+            setDuration(newDuration) {
+                this.duration = newDuration
+            }
+        }
 
-// Initialize the text flip animation
-const textFlip = new TextFlip({
-  words: ["Sleepers", "Coders", "Strongest", "Innitiators"],
-  duration: 3000,
-})
+        // Initialize the text flip animation
+        const textFlip = new TextFlip({
+            words: ["Sleepers", "Coders", "Strongest", "Innitiators"],
+            duration: 3000,
+        })
 
-// Optional: Dark mode toggle for demonstration
-document.addEventListener("keydown", (e) => {
-  if (e.key === "d" || e.key === "D") {
-    document.body.classList.toggle("dark-mode")
-  }
-})
-// Typing Text Animation
-const text = "Welcome To Vanguard 24 Website Profile";
-const typingText = document.getElementById("typing-text");
-let index = 0;
+        // Optional: Dark mode toggle for demonstration
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "d" || e.key === "D") {
+                document.body.classList.toggle("dark-mode")
+            }
+        })
+        // Typing Text Animation
+        const text = "Welcome To Vanguard 24 Website Profile";
+        const typingText = document.getElementById("typing-text");
+        let index = 0;
 
-function typeEffect() {
-  if (index < text.length) {
-    typingText.textContent += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, 80); // kecepatan ketik (100ms)
-  }
-}
+        function typeEffect() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 80); // kecepatan ketik (100ms)
+            }
+        }
 
-window.addEventListener("load", typeEffect);
-
+        window.addEventListener("load", typeEffect);
     </script>
 </body>
+
 </html>
