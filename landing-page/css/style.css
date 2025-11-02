@@ -1,0 +1,813 @@
+/* Use Google Fonts for Montserrat (no local fonts folder required) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* set a page background so overscroll / touchpad bounce doesn't reveal white */
+html, body {
+    background-color: #1b263b; /* same base color used in hero overlay */
+    height: 100%;
+    overscroll-behavior-y: none; /* prevent scroll chaining / overscroll bounce in supporting browsers */
+}
+
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+/* Navigation */
+nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: transparent;
+    z-index: 1500 !important;
+    padding: 1rem 2rem;
+    /* smooth hide/show and smooth blur/background transition */
+    transition: transform 0.28s ease, background 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease;
+    will-change: transform, backdrop-filter;
+}
+
+/* when user scrolls down, hide the nav by moving it up */
+.nav-hidden {
+    transform: translateY(-120%);
+}
+
+/* when page is scrolled slightly down, add a subtle blurred background so nav remains readable */
+.nav-scrolled {
+    background: rgba(27, 38, 59, 0.45); /* semi-transparent dark tint */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 25px; /* reduced logo size */
+    width: auto;
+    margin-top: 1rem; /* turunkan logo lebih jauh */
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 2.5rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    font-weight: 700; /* Make navbar links bold */
+}
+
+.nav-links a.active {
+    color: #FFD700; /* Gold color for active link */
+    font-weight: 700; /* Keep active link bold */
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
+
+/* Hero Section */
+#home {
+    min-height: 100vh;
+    /* ensure correct hero image and overlay */
+    background: linear-gradient(rgba(27, 38, 59, 0.8), rgba(27, 38, 59, 0.8)),
+                url('../images/Hero.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* allow the hero background to scroll with the page */
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative; /* keep hero in its own stacking context */
+    /* remove explicit z-index so it doesn't visually overlap the following section */
+    z-index: auto;
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    margin-left: 4rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.05; /* tighten line spacing when the heading wraps */
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    max-width: 900px;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.social-links h3 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.social-links.slide-up.is-visible {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-icon {
+    display: inline-flex; /* anchor acts as box */
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #E3D095; /* gold/tan box background requested */
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 5px 4px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.social-icon:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 5px 4px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile: slightly smaller boxes */
+@media (max-width: 768px) {
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+
+    .social-icon img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* We'll add a mobile menu later */
+    }
+
+    /* Slightly smaller logo on mobile */
+    .logo img {
+        height: 20px; /* mobile logo size */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* responsive heading size */
+        line-height: 1.08;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Section directly below hero using images/bg1.png */
+.bg-section {
+    /* make bg section full viewport height so image isn't shortened */
+    min-height: 100vh;
+    background-image: url('../images/bg1.png');
+    background-size: cover;
+    background-position: top center; /* anchor to top so it starts immediately below the hero */
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: auto;
+    margin-top: 0; /* ensure it sits directly below hero */
+}
+
+.bg-section .bg-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 4rem 2rem; /* space for content */
+}
+
+/* Second background section (below bg1) */
+.bg-section-2 {
+    /* full viewport height like bg1 to avoid being cut off */
+    min-height: 100vh;
+    background-image: url('../images/bg2.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: auto;
+    margin-top: 0;
+}
+
+.bg-section-2 .bg-container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 4rem 0;
+    /* Add perspective for 3D transforms on child elements */
+    perspective: 1000px;
+}
+
+/* Awards / Prestasi carousel */
+.awards-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.awards-carousel {
+    display: flex;
+    gap: 4rem; /* Increased gap for more spacing around centered card */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 9rem 0; /* Increased vertical padding to accommodate scaled card */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    width: 100%;
+    /* Centered padding for first/last cards */
+    padding-left: calc(50vw - 110px);
+    padding-right: calc(50vw - 110px);
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    user-select: none; /* Prevent text selection during drag */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+}
+
+.award-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 15px 20px 4px 0px rgba(0, 0, 0, 0.5);
+    border: 6px solid rgba(255,255,255,0.06);
+    background: #fff;
+    flex-shrink: 0;
+    width: 280px;
+    height: 400px;
+    align-self: center;
+    transform-origin: center center;
+    transition: box-shadow 0.6s ease, transform 0.6s ease; /* Slower transition */
+    animation: fadeIn 0.6s ease-out;
+    pointer-events: auto; /* Allow pointer events */
+    user-select: none; /* Prevent image drag */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none; /* Prevent drag image on Safari/Chrome */
+}
+
+/* When card is centered */
+.award-card.is-center {
+    box-shadow: 15px 20px 4px 0px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transform: scale(1.5);
+}
+
+.award-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop to fit the box */
+}
+
+/* For centered card, preserve aspect ratio and show full image */
+.award-card.is-center img {
+    max-height: 500px;
+    width: 100%;
+}
+
+/* make the carousel horizontally scrollable on narrow screens */
+@media (max-width: 900px) {
+    .awards-carousel {
+        gap: 1rem;
+        padding-left: calc(50vw - 90px);
+        padding-right: calc(50vw - 90px);
+    }
+    .award-card {
+        width: 180px;
+        height: 280px;
+    }
+}
+
+/* clip the extreme left/right so end cards look cut (desktop) */
+.awards-row {
+    overflow: hidden;
+}
+
+/* Feature row styling for photo + content */
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature-photo,
+.feature-content {
+    transition: opacity 0.3s ease-out, transform 0.5s ease-out;
+}
+
+.feature-photo img {
+    /* Force a fixed display box so all feature photos share the same visible size.
+       Use object-fit:cover to crop portrait images (like foto-farid) to the same box as foto-adit. */
+    width: 400px;
+    height: 520px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 15px 20px 4px 10px rgba(0,0,0,0.25);
+    border: 4px solid #fff;
+    margin-left: 3rem;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+/* About Images Carousel */
+#about-photo-container {
+    position: relative;
+    width: 400px;
+    height: 520px;
+    margin-left: 3rem;
+}
+
+.about-image {
+    /* Same styling as regular feature-photo img */
+    width: 400px;
+    height: 520px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 15px 20px 4px 10px rgba(0,0,0,0.25);
+    border: 4px solid #fff;
+    
+    /* Carousel specific */
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    opacity: 0 !important;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+    display: block !important;
+}
+
+.about-image.active {
+    opacity: 1 !important;
+    pointer-events: auto;
+}
+
+.feature-content {
+    color: #ffffff;
+    margin-left: 5rem;
+    height: 30rem;
+    animation: slideInRight 0.8s ease-out;
+}
+
+.feature-content h2 {
+    font-size: 4rem;
+    margin: 0 0 0.3rem 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.divider {
+    width: 400px;
+    height: 4px;
+    background: #E3D095; /* matching gold accent */
+    margin: 0 0 1.1rem 0;
+    border-radius: 3px;
+}
+
+.feature-content p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.92);
+    max-width: 700px;
+    margin-bottom: 3rem;
+}
+
+/* OUR MOMENTS Section */
+.moments-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.moments-title {
+    font-size: 3.4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.moments-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem;
+}
+
+.moment-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 15px 20px 4px 0px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: inline-block; /* penting untuk masonry layout */
+    width: 100%;
+}
+
+.moment-card img {
+    width: 100%;
+    height: auto; /* aspect ratio akan mengikuti foto asli */
+    display: block;
+    border-radius: 16px;
+    border: 4px solid #fff;
+}
+
+/* Responsive columns */
+@media (min-width: 1200px) {
+    .moments-grid { column-count: 4; }
+}
+
+@media (max-width: 900px) {
+    .moments-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .moments-grid { column-count: 1; }
+}
+
+/* Button styling */
+.btn {
+    font-size: 1.5rem;
+    display: inline-block;
+    background: #E3D095;
+    color: #0E2148; /* dark text on gold button */
+    padding: 0.5rem 6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 5px 4px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.14s ease, box-shadow 0.14s ease, opacity 0.14s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+    overflow: auto;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 75%; /* reduced from 90% */
+    max-height: 80vh; /* reduced from 90vh */
+    margin: 2rem;
+    animation: zoomIn 0.3s ease-out;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -60px;
+    right: -60px; /* moved outside the image */
+    width: 4em;
+    height: 4em;
+    background: rgba(180, 83, 107, 0.11);
+    border: none;
+    border-radius: 5px;
+    transition: background 0.5s;
+    cursor: pointer;
+}
+
+.lightbox-close .X,
+.lightbox-close .Y {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2em;
+    height: 1.5px;
+    background-color: #fff;
+}
+
+.lightbox-close .X {
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.lightbox-close .Y {
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+.lightbox-close .close-text {
+    position: absolute;
+    display: flex;
+    padding: 0.8rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    top: -70%;
+    left: 50%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 12px;
+    background-color: rgb(19, 22, 24);
+    color: rgb(187, 229, 236);
+    border: none;
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.lightbox-close:hover {
+    background-color: rgb(211, 21, 21);
+}
+
+.lightbox-close:active {
+    background-color: rgb(130, 0, 0);
+}
+
+.lightbox-close:hover > .close-text {
+    animation: close 0.2s forwards 0.25s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Image lazy loading animation */
+img {
+    transition: opacity 0.3s ease-in;
+}
+
+img[data-src] {
+    opacity: 0;
+}
+
+img.is-loaded {
+    opacity: 1;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Messages Section */
+.messages-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.messages-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.messages-display {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.message {
+    display: block;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(227, 208, 149, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 15px 20px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.message-content h3 {
+    color: #E3D095;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.message-content p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.message-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.message-form h3 {
+    color: #E3D095;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.message-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message-form input,
+.message-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(227, 208, 149, 0.3); /* subtle gold border */
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.message-form input:focus,
+.message-form textarea:focus {
+    border-color: #E3D095;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.message-form input::placeholder,
+.message-form textarea::placeholder {
+    color: rgba(227, 208, 149, 0.7);
+    font-weight: 400;
+}
+
+.message-form .btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .message {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .message-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
