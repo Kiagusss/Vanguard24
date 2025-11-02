@@ -6,24 +6,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function loadMessages() {
     try {
-        const response = await fetch('/api/messages');
+        const response = await fetch('/api/messages', { headers: { 'Accept': 'application/json' }, cache: 'no-store' });
+        
+        if (!response.ok) {
+            console.log('API not OK, keeping Blade content');
+            return;
+        }
+
         const messages = await response.json();
+        console.log('Messages dari API:', messages.length, 'pesan');
         
         const messagesDisplay = document.querySelector('.messages-display');
-        messagesDisplay.innerHTML = ''; // Clear existing messages
 
-        messages.forEach(message => {
-            const messageEl = createMessageElement(message);
-            messagesDisplay.appendChild(messageEl);
-        });
+        // Progressive enhancement: hanya replace kalau API mengembalikan data
+        if (Array.isArray(messages) && messages.length > 0) {
+            console.log('Replacing with', messages.length, 'messages');
+            messagesDisplay.innerHTML = '';
+            messages.forEach(message => {
+                const messageEl = createMessageElement(message);
+                messagesDisplay.appendChild(messageEl);
+            });
+        } else {
+            console.log('No messages from API, keeping Blade content');
+        }
     } catch (error) {
+        // Jika gagal fetch/parse, jangan apa-apakan DOM agar konten dari Blade tetap ada
         console.error('Error loading messages:', error);
     }
 }
 
 function createMessageElement(message) {
     const div = document.createElement('div');
-    div.className = 'message fade-in';
+    div.className = 'message is-visible'; // langsung visible, skip animasi fade-in
     div.innerHTML = `
         <div class="message-content">
             <h3>${message.name}</h3>

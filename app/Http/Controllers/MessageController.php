@@ -24,7 +24,7 @@ class MessageController extends Controller
 
     public function getMessages()
     {
-        $messages = Message::latest()->take(3)->get();
+        $messages = Message::latest()->get(); // ambil semua pesan, bukan cuma 3
         return response()->json($messages);
     }
 }

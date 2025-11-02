@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 
 // Landing page dengan data dinamis dari database
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/', [GaleriController::class, 'index'])->name('landing');
 Route::get('/landing', [LandingController::class, 'index']);
 
 // Route untuk form message

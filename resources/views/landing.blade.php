@@ -12,9 +12,11 @@
 <body>
     <!-- Hero section with background image -->
     <section class="hero" id="home">
+        <div class="section-separator-vertical" style="right: 30px; top: 74%; width: 46px; height: 522px;"></div>
         <div class="hero-content">
             <h1 class="slide-up">Selamat Datang <br> di Web Angkatan Infomatika 2024</h1>
             <p class="slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3 class="slide-up" style="color: #FFD700; margin-bottom: 1rem;">OUR CONTACT</h3>
             <div class="social-links slide-up">
                 <a href="#" class="social-icon"><img src="/landing-page/images/ig.png" alt="Instagram"></a>
                 <a href="#" class="social-icon"><img src="/landing-page/images/wa.png" alt="WhatsApp"></a>
@@ -45,6 +47,7 @@
 
     <!-- Section directly below hero with background image bg1.png -->
     <section class="bg-section" id="about">
+        <div class="section-separator" style="left:33%; width: 868px; height: 70px; background: #483AA0;"></div>
         <div class="bg-container">
             <!-- Feature row: photo (foto-adit) + placeholder content -->
             <div class="feature-row">
@@ -79,6 +82,8 @@
 
     <!-- Section directly below bg1 using images/bg2.png -->
     <section class="bg-section-2" id="prestasi">
+        <div class="section-separator" style="left:73%; width: 715px; height: 63px;"></div>
+        <div class="section-separator" style="left:15%; width: 356px; height: 63px; background:#483AA0"></div>
         <div class="bg-container">
             <!-- Prestasi / Awards row: center poster with side story cards -->
             @if($prestasi->isNotEmpty())
@@ -96,7 +101,11 @@
     </section>
 
     <!-- Section with bg1 -->
+    <!-- Section with bg1 -->
     <section class="bg-section" id="moments">
+        <div class="section-separator" style="left:83%; width: 356px; height: 63px;"></div>
+        <div class="section-separator" style="left:30%; width: 715px; height: 63px;"></div>
+        <div class="section-separator-vertical" style="left: 30px; top: 90%; width: 46px; height: 316px; background: #483AA0;"></div>
         <div class="bg-container">
             <!-- OUR MOMENTS section -->
             <div class="moments-section">
@@ -119,6 +128,7 @@
 
     <!-- Section with bg2 -->
     <section class="bg-section-2" id="messages">
+        <div class="section-separator" style="left:83%; width: 356px; height: 63px;"></div>
         <div class="bg-container">
             <div class="messages-section">
                 <h2 class="messages-title slide-up">PESAN & KESAN</h2>

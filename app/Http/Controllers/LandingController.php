@@ -22,8 +22,8 @@ class LandingController extends Controller
         // Ambil gambar Our Moments (gallery biasa)
         $moments = Gallery::where('category', 'moments')->get();
 
-        // Messages - skip dulu (array kosong)
-        $messages = collect();
+        // Messages - tampilkan semua pesan saat initial load
+        $messages = Message::latest()->get();
 
         return view('landing', compact('heroes', 'prestasi', 'aboutImages', 'moments', 'messages'));
     }
