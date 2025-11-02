@@ -19,8 +19,9 @@
     <header>
         <nav>
             <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="{{asset('images/Vanguard-Logo.jpg')}}" alt="as" width="50px" height="50px">
-                <a href="#" class="logo">Vanguard</a>
+                <img src="{{asset('images/Vanguard-Logo2.jpg')}}" alt="as" width="50px" height="50px">
+                    <a href="#" class="logo">Vanguard</a>
+
             </div>
 
             <ul class="nav-links">
@@ -92,73 +93,140 @@
             </div>
         </div>
     </section>
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="accent-line"></div>
+            <h2>Message From</h2>
+            <h1>Ketua Angkatan</h1>
+            <p>
+               "Makasih udah saling jaga, saling dorong, dan nggak ninggalin siapa pun di angkatan ini. Makasih juga udah ngasih gue kepercayaan serta amanah buat ke depannya. Tolong tegur kalau gue lalai
+atau buat salah. Tapi ingat, mau sesusah apa pun, pasti bakal gue usahain buat kita semua. Ayo kita berjuang dan berbakti untuk keluarga, himpunan, dan masa depan. Mari Mari kita buktikan kalau kita bukan sekadar nama, mari tanamkan arti di setiaplangkah kita semua. Satu langkah, satu tekad, satu suara. Terima kasih telah menjadi bagian dari perjuangan ini. Terima kasih, Informatika Angkatan 2024 (Vanguard 24)."
+            </p>
+            <div class="leader-name">— Vanguard 24 Leader</div>
+        </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="image-wrapper">
+                <img src="{{ asset('images/Foto-Ketang.png') }}" alt="Our Leaders">
+            </div>
 
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="pricing-container">
-            <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle">Choose the perfect plan for your team. Always flexible, always fair.</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-name">Starter</div>
-                    <p class="pricing-description">Perfect for individuals and small teams</p>
-                    <div class="pricing-price">$29</div>
-                    <div class="pricing-period">per month, billed annually</div>
-                    <ul class="pricing-features">
-                        <li>Up to 5 workflows</li>
-                        <li>100 tasks per month</li>
-                        <li>Basic integrations</li>
-                        <li>Email support</li>
-                    </ul>
-                    <button class="btn-primary">Get Started</button>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-name">Professional</div>
-                    <p class="pricing-description">For growing teams and businesses</p>
-                    <div class="pricing-price">$99</div>
-                    <div class="pricing-period">per month, billed annually</div>
-                    <ul class="pricing-features">
-                        <li>Unlimited workflows</li>
-                        <li>10,000 tasks per month</li>
-                        <li>500+ integrations</li>
-                        <li>Priority support</li>
-                        <li>Advanced analytics</li>
-                    </ul>
-                    <button class="btn-primary">Get Started</button>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name">Enterprise</div>
-                    <p class="pricing-description">For large organizations</p>
-                    <div class="pricing-price">Custom</div>
-                    <div class="pricing-period">contact sales for pricing</div>
-                    <ul class="pricing-features">
-                        <li>Everything in Professional</li>
-                        <li>Unlimited tasks</li>
-                        <li>Custom integrations</li>
-                        <li>Dedicated support</li>
-                        <li>SLA guarantee</li>
-                    </ul>
-                    <button class="btn-primary">Contact Sales</button>
-                </div>
+            <!-- Leader Info -->
+            <div class="leader-info">
+                <div class="leader-name-text">Rizan Abki Chaerullah</div>
+                <div class="leader-title">Ketua Angkatan Informatika 2024</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" id="contact">
-        <div class="final-cta-container">
-            <h2>Ready to Transform Your Workflow?</h2>
-            <p>Join thousands of teams already using StreamLine to automate their work and boost productivity.</p>
-            <button class="btn-primary">Start Your Free Trial Today</button>
+
+    <!-- 🔹 Gallery Section (Pinterest-style Masonry) -->
+<section class="gallery-section" id="pricing">
+  <h2 class="section-title">Informatics 24 Gallery</h2>
+  <p class="section-subtitle">Every picture tells a story of our journey</p>
+
+  <div class="gallery">
+    @foreach ($galleries as $gallery)
+      <div class="gallery-item"
+           data-title="{{ $gallery->title ?? 'Untitled' }}"
+           data-desc="{{ $gallery->subtitle ?? '' }}"
+           data-img="{{ Storage::url($gallery->file) }}">
+        <img src="{{ Storage::url($gallery->file) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}">
+      </div>
+    @endforeach
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <span class="close-btn" id="close">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <div class="caption">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== Infinite Moving Cards Section ===================== -->
+<section id="quotes" class="quotes-section">
+  <h2 class="section-title">Notes</h2>
+  <p class="section-subtitle">Create/Add your quotes, Notes And letter for Vanguard</p>
+
+  <!-- Baris Pertama -->
+  <div class="container">
+    <div class="scroller" data-direction="right" data-speed="slow">
+      <ul class="scroller__inner" id="card-list-1">
+        <!-- Cards diisi lewat JS -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Baris Kedua -->
+  <div class="container">
+    <div class="scroller" data-direction="left" data-speed="slow">
+      <ul class="scroller__inner" id="card-list-2">
+        <!-- Cards diisi lewat JS -->
+      </ul>
+    </div>
+  </div>
+  <!-- Tombol Add Notes -->
+<div class="add-notes-container">
+    <button class="open-modal-btn" id="openBtn">Add Notes</button>
+</div>
+
+<!-- Modal Notes -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="note-modal">
+    <!-- Header -->
+    <div class="modal-header">
+      <div>
+        <h2>Add a New Note 📝</h2>
+        <p class="modal-subtitle">Write down your thoughts, memories, or messages for Vanguard 24 ✨</p>
+      </div>
+      <button class="close-btn" id="closeBtn">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <form id="noteForm">
+        <div class="form-group">
+          <label for="noteTitle">Title</label>
+          <input type="text" id="noteTitle" name="noteTitle" placeholder="Enter your note title" required>
         </div>
-    </section>
 
+        <div class="form-group">
+          <label for="noteSubtitle">Subtitle</label>
+          <input type="text" id="noteSubtitle" name="noteSubtitle" placeholder="Enter subtitle (optional)">
+        </div>
+
+        <div class="form-group">
+          <label for="noteText">Note</label>
+          <textarea id="noteText" name="noteText" placeholder="Write your note here..." required></textarea>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-submit" id="submitBtn">Save Note</button>
+      <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+   
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -212,142 +280,9 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const navButtons = document.querySelector('.nav-buttons');
+  <script src="{{asset('script.js')}}"></script>
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navButtons.classList.toggle('active');
-
-            // Animate hamburger
-            const spans = hamburger.querySelectorAll('span');
-            spans[0].style.transform = navLinks.classList.contains('active') ? 'rotate(45deg) translate(8px, 8px)' : 'none';
-            spans[1].style.opacity = navLinks.classList.contains('active') ? '0' : '1';
-            spans[2].style.transform = navLinks.classList.contains('active') ? 'rotate(-45deg) translate(7px, -7px)' : 'none';
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navButtons.classList.remove('active');
-                const spans = hamburger.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > 50) {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
-            }
-
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // Button click handlers
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function() {
-                console.log('Button clicked:', this.textContent);
-                // Add your action here
-            });
-        });
-
-        class TextFlip {
-            constructor(options = {}) {
-                this.textElement = document.getElementById("flipText")
-                this.words = options.words || ["Sleepers", "Coders", "Strongest", "Innitiators"]
-                this.duration = options.duration || 3000
-                this.currentIndex = 0
-                this.init()
-            }
-
-            init() {
-                this.setNextWord()
-            }
-
-            setNextWord() {
-                const exitClass = "exit"
-
-                // Add exit animation
-                this.textElement.classList.add(exitClass)
-
-                // Wait for exit animation to finish
-                setTimeout(() => {
-                    // Update text
-                    this.currentIndex = (this.currentIndex + 1) % this.words.length
-                    this.textElement.textContent = this.words[this.currentIndex]
-
-                    // Remove exit class to trigger entry animation
-                    this.textElement.classList.remove(exitClass)
-
-                    // Schedule next word change
-                    setTimeout(() => this.setNextWord(), this.duration)
-                }, 500) // Duration of exit animation
-            }
-
-            setWords(newWords) {
-                this.words = newWords
-            }
-
-            setDuration(newDuration) {
-                this.duration = newDuration
-            }
-        }
-
-        // Initialize the text flip animation
-        const textFlip = new TextFlip({
-            words: ["Sleepers", "Coders", "Strongest", "Innitiators"],
-            duration: 3000,
-        })
-
-        // Optional: Dark mode toggle for demonstration
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "d" || e.key === "D") {
-                document.body.classList.toggle("dark-mode")
-            }
-        })
-        // Typing Text Animation
-        const text = "Welcome To Vanguard 24 Website Profile";
-        const typingText = document.getElementById("typing-text");
-        let index = 0;
-
-        function typeEffect() {
-            if (index < text.length) {
-                typingText.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 80); // kecepatan ketik (100ms)
-            }
-        }
-
-        window.addEventListener("load", typeEffect);
-    </script>
+    
 </body>
 
 </html>
