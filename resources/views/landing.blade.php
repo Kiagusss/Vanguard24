@@ -54,7 +54,7 @@
                 @if($aboutImages->isNotEmpty())
                 <div class="feature-photo slide-left" id="about-photo-container">
                     @foreach($aboutImages as $index => $image)
-                    <img src="{{ asset('storage/' . $image->file) }}"
+                    <img src="{{ Storage::url($image->file) }}"
                         alt="{{ $image->title ?? 'About Us' }}"
                         class="about-image @if($index === 0) active @endif"
                         data-index="{{ $index }}"
@@ -91,7 +91,7 @@
                 <div class="awards-carousel" id="awards-carousel">
                     @foreach($prestasi as $item)
                     <div class="award-card">
-                        <img src="{{ asset('storage/' . $item->file) }}" alt="{{ $item->title ?? 'Prestasi' }}">
+                        <img src="{{ Storage::url($item->file) }}" alt="{{ $item->title ?? 'Prestasi' }}">
                     </div>
                     @endforeach
                 </div>
@@ -114,7 +114,7 @@
                     @if($moments->isNotEmpty())
                     @foreach($moments as $moment)
                     <div class="moment-card fade-in" onclick="openLightbox(this)">
-                        <img src="{{ asset('storage/' . $moment->file) }}" alt="{{ $moment->title ?? 'Moment' }}">
+                        <img src="{{ Storage::url($moment->file) }}" alt="{{ $moment->title ?? 'Moment' }}">
                     </div>
                     @endforeach
                     @endif
