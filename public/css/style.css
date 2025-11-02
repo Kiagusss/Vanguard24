@@ -242,148 +242,347 @@
            
 
             /* Testimonials Section */
-            .testimonials {
-                padding: 6rem 2rem;
-                background-color: var(--secondary);
-            }
+           
+.testimonials {
+    width: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.testimonials .container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.left-section {
+    flex: 1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.left-section h2 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #003d82;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.left-section h1 {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    color: #0a1f3c;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.left-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    max-width: 600px;
+}
+
+.leader-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #003d82;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.accent-line {
+    width: 60px;
+    height: 4px;
+    background-color: #003d82;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: slideInLineRight 0.8s ease-out 0.3s forwards;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* pastikan konten vertikal di tengah */
+    align-items: center;       /* pastikan konten horizontal di tengah */
+    background-color: #003d82;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    height: 100vh;             /* tinggi penuh agar bisa centering vertikal */
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.image-wrapper img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    animation: zoomInImage 1s ease-out 0.3s forwards;
+}
+
+/* Pastikan info leader juga sejajar di bawah gambar */
+.leader-info {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
+
+
+.leader-name-box {
+    text-align: center;
+}
+
+.leader-name-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.leader-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+/* Floating circles animation */
+.floating-element {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+    top: 5%;
+    right: 5%;
+    width: 100px;
+    height: 100px;
+    animation-delay: 0.5s;
+}
+
+.floating-element:nth-child(2) {
+    bottom: 10%;
+    left: 5%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 1s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLineRight {
+    from { width: 0; opacity: 0; }
+    to { width: 60px; opacity: 1; }
+}
+
+@keyframes zoomInImage {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .testimonials .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section {
+        padding: 60px 40px;
+        min-height: 50vh;
+    }
+
+    .right-section {
+        min-height: 60vh;
+        padding-bottom: 60px;
+    }
+
+    .left-section h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .left-section {
+        padding: 40px 24px;
+    }
+
+    .left-section h1 {
+        font-size: 32px;
+    }
+
+    .left-section p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .right-section {
+        min-height: 400px;
+    }
+}
+            
+/* ===== Masonry Gallery Section ===== */
+.gallery-section {
+
+  color: var(--accent);
+  padding: 6rem 2rem;
+}
+
+.gallery-section .section-title,
+.gallery-section .section-subtitle {
+  text-align: center;
+}
+
+.gallery {
+  column-count: 3;
+  column-gap: 1.2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+  break-inside: avoid;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+/* Fullscreen Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 1rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  animation: zoomIn 0.4s ease;
+}
+
+.modal .caption {
+  text-align: center;
+  color: white;
+  max-width: 900px;
+}
+
+.modal .caption h2 {
+  margin: 0.3rem 0;
+  font-size: 1.8rem;
+}
+
+.modal .caption p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--accent);
+  border: white;
+  transition: transform 0.3s;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
             
-
-            /* Pricing Section */
-            .pricing {
-                background-color: var(--neutral-light);
-                padding: 6rem 2rem;
-            }
-
-            .pricing-container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            .pricing-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-                margin-top: 3rem;
-            }
-
-            .pricing-card {
-                background-color: var(--secondary);
-                padding: 2.5rem;
-                border-radius: 12px;
-                border: 2px solid var(--border);
-                transition: all 0.3s ease;
-                position: relative;
-            }
-
-            .pricing-card.featured {
-                border-color: var(--accent);
-                transform: scale(1.05);
-                box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-            }
-
-            .pricing-badge {
-                position: absolute;
-                top: -12px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: var(--accent);
-                color: var(--secondary);
-                padding: 0.5rem 1rem;
-                border-radius: 50px;
-                font-size: 0.8rem;
-                font-weight: 600;
-            }
-
-            .pricing-name {
-                font-size: 1.5rem;
-                font-weight: 700;
-                margin-bottom: 0.5rem;
-                color: var(--text-primary);
-            }
-
-            .pricing-description {
-                color: var(--text-secondary);
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .pricing-price {
-                font-size: 2.5rem;
-                font-weight: 800;
-                color: var(--accent);
-                margin-bottom: 0.5rem;
-            }
-
-            .pricing-period {
-                color: var(--text-secondary);
-                margin-bottom: 2rem;
-                font-size: 0.9rem;
-            }
-
-            .pricing-features {
-                list-style: none;
-                margin-bottom: 2rem;
-            }
-
-            .pricing-features li {
-                padding: 0.75rem 0;
-                color: var(--text-secondary);
-                border-bottom: 1px solid var(--border);
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .pricing-features li::before {
-                content: "✓";
-                color: var(--accent);
-                font-weight: bold;
-                font-size: 1.2rem;
-            }
-
-            .pricing-card .btn-primary {
-                width: 100%;
-            }
-
-            /* Final CTA Section */
-            .final-cta {
-                background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-                color: var(--secondary);
-                padding: 6rem 2rem;
-                text-align: center;
-            }
-
-            .final-cta-container {
-                max-width: 800px;
-                margin: 0 auto;
-            }
-
-            .final-cta h2 {
-                font-size: 2.5rem;
-                font-weight: 800;
-                margin-bottom: 1rem;
-            }
-
-            .final-cta p {
-                font-size: 1.1rem;
-                margin-bottom: 2rem;
-                opacity: 0.95;
-            }
-
-            .final-cta .btn-primary {
-                background-color: var(--secondary);
-                color: var(--accent);
-                font-weight: 700;
-            }
-
-            .final-cta .btn-primary:hover {
-                background-color: var(--neutral-light);
-            }
+         
 
             /* Footer */
             footer {
-                background-color: var(--primary);
+                background-color: var(--accent);
                 color: var(--secondary);
                 padding: 4rem 2rem 2rem;
             }
@@ -690,3 +889,334 @@
     font-size: 1rem;
     color: var(--text-secondary);
     }
+
+  /* ===================== Infinite Scrolling Cards ===================== */
+
+.quotes-section {
+  padding: 80px 0;
+  background-color: var(--secondary);
+  color: #fff;
+  text-align: center;
+}
+
+.quotes-section .section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.quotes-section .section-subtitle {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 30px;
+}
+
+/* Container tiap baris */
+.quotes-section .container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin: 20px auto;
+}
+
+/* Wrapper scroller */
+.scroller {
+  width: 100%;
+  display: flex;
+  align-items: flex-start; /* ✅ biar tinggi menyesuaikan isi */
+  position: relative;
+}
+
+/* Barisan kartu */
+.scroller__inner {
+  display: inline-flex;     /* ✅ inline-flex biar tinggi tiap card independen */
+  align-items: flex-start;  /* ✅ sejajarkan dari atas */
+  gap: 16px;                /* ✅ jarak antar card */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Kartu kutipan */
+.card {
+  background: var(--accent);
+  border-radius: 18px;
+  padding: 18px 22px;
+  width: fit-content;       /* ✅ menyesuaikan isi */
+  max-width: 400px;
+  flex-shrink: 0;
+  text-align: left;
+  line-height: 1.6;
+  overflow: visible;
+  white-space: normal;      /* ✅ teks bisa turun baris */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(90deg,rgba(40, 49, 77, 1) 0%, rgba(0, 61, 130, 1) 63%, rgba(40, 49, 77, 1) 100%);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(1, 5, 77, 0.938);
+}
+
+.card blockquote {
+  font-style: italic;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.card .name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.card .author {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Animasi infinite scroll */
+.animate-scroll {
+  display: inline-flex;
+  animation: scroll var(--animation-duration, 40s) linear infinite;
+  animation-direction: var(--animation-direction, normal);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Baris pertama ke kanan, baris kedua ke kiri */
+[data-direction="right"] .animate-scroll {
+  animation-direction: reverse;
+}
+
+[data-direction="left"] .animate-scroll {
+  animation-direction: normal;
+}
+/* Responsiveness untuk mobile */
+@media (max-width: 768px) {
+ 
+   .card {
+    min-width: 250px;     /* card minimal cukup besar */
+    max-width: 350px;       /* tidak melebihi layar */
+    margin-bottom: 16px;  /* jarak antar card di wrap */
+  }
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+/* 🌟 Modal Container */
+.note-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 480px;
+  width: 90%;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  animation: modalFadeIn 0.3s ease;
+  z-index: 1000;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ✨ Header */
+.note-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-modal .modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+/* 🧩 Input Fields */
+.note-modal .modal-body .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.note-modal input,
+.note-modal textarea {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  font-size: 15px;
+  transition: 0.3s;
+  background: #fafafa;
+}
+
+.note-modal input:focus,
+.note-modal textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  background: #fff;
+}
+
+.note-modal textarea {
+  resize: none;
+  height: 110px;
+}
+
+/* 🎯 Footer Buttons */
+.note-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.note-modal .btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.note-modal .btn-submit {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.note-modal .btn-submit:hover {
+  background: linear-gradient(135deg, #0056d6, #00a2e0);
+  transform: translateY(-2px);
+}
+
+.note-modal .btn-cancel {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.note-modal .btn-cancel:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* 💫 Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.open-modal-btn {
+  background: linear-gradient(135deg, #001f3f, #003366);
+  color: #ffffff;
+  border: none;
+  padding: 14px 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 31, 63, 0.35);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ✨ Efek hover elegan */
+.open-modal-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 31, 63, 0.45);
+  background: linear-gradient(135deg, #003366, #004080);
+}
+
+/* 🌟 Animasi ketika ditekan */
+.open-modal-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 31, 63, 0.25);
+}
+
+/* 💫 Efek cahaya halus saat hover */
+.open-modal-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.open-modal-btn:hover::after {
+  opacity: 1;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #6c7a89;
+  margin-top: 4px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.note-modal label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #001f3f;
+}
+
+.note-modal input,
+.note-modal textarea {
+  border: 1.5px solid #ccd6dd;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  font-size: 15px;
+  color: #333;
+  background-color: #f8faff;
+  transition: all 0.3s ease;
+}
+
+.note-modal input:focus,
+.note-modal textarea:focus {
+  outline: none;
+  border-color: #004080;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 64, 128, 0.15);
+}

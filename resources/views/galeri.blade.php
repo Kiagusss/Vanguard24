@@ -93,73 +93,154 @@
             </div>
         </div>
     </section>
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="accent-line"></div>
+            <h2>Message From</h2>
+            <h1>Ketua Angkatan</h1>
+            <p>
+               "Makasih udah saling jaga, saling dorong, dan nggak ninggalin siapa pun di angkatan ini. Makasih juga udah ngasih gue kepercayaan serta amanah buat ke depannya. Tolong tegur kalau gue lalai
+atau buat salah. Tapi ingat, mau sesusah apa pun, pasti bakal gue usahain buat kita semua. Ayo kita berjuang dan berbakti untuk keluarga, himpunan, dan masa depan. Mari Mari kita buktikan kalau kita bukan sekadar nama, mari tanamkan arti di setiaplangkah kita semua. Satu langkah, satu tekad, satu suara. Terima kasih telah menjadi bagian dari perjuangan ini. Terima kasih, Informatika Angkatan 2024 (Vanguard 24)."
+            </p>
+            <div class="leader-name">— Vanguard 24 Leader</div>
+        </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="image-wrapper">
+                <img src="{{ asset('images/Foto-Ketang.png') }}" alt="Our Leaders">
+            </div>
 
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="pricing-container">
-            <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle">Choose the perfect plan for your team. Always flexible, always fair.</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-name">Starter</div>
-                    <p class="pricing-description">Perfect for individuals and small teams</p>
-                    <div class="pricing-price">$29</div>
-                    <div class="pricing-period">per month, billed annually</div>
-                    <ul class="pricing-features">
-                        <li>Up to 5 workflows</li>
-                        <li>100 tasks per month</li>
-                        <li>Basic integrations</li>
-                        <li>Email support</li>
-                    </ul>
-                    <button class="btn-primary">Get Started</button>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-name">Professional</div>
-                    <p class="pricing-description">For growing teams and businesses</p>
-                    <div class="pricing-price">$99</div>
-                    <div class="pricing-period">per month, billed annually</div>
-                    <ul class="pricing-features">
-                        <li>Unlimited workflows</li>
-                        <li>10,000 tasks per month</li>
-                        <li>500+ integrations</li>
-                        <li>Priority support</li>
-                        <li>Advanced analytics</li>
-                    </ul>
-                    <button class="btn-primary">Get Started</button>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-name">Enterprise</div>
-                    <p class="pricing-description">For large organizations</p>
-                    <div class="pricing-price">Custom</div>
-                    <div class="pricing-period">contact sales for pricing</div>
-                    <ul class="pricing-features">
-                        <li>Everything in Professional</li>
-                        <li>Unlimited tasks</li>
-                        <li>Custom integrations</li>
-                        <li>Dedicated support</li>
-                        <li>SLA guarantee</li>
-                    </ul>
-                    <button class="btn-primary">Contact Sales</button>
-                </div>
+            <!-- Leader Info -->
+            <div class="leader-info">
+                <div class="leader-name-text">Rizan Abki Chaerullah</div>
+                <div class="leader-title">Ketua Angkatan Informatika 2024</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta" id="contact">
-        <div class="final-cta-container">
-            <h2>Ready to Transform Your Workflow?</h2>
-            <p>Join thousands of teams already using StreamLine to automate their work and boost productivity.</p>
-            <button class="btn-primary">Start Your Free Trial Today</button>
+
+    <!-- 🔹 Gallery Section (Pinterest-style Masonry) -->
+<section class="gallery-section" id="pricing">
+  <h2 class="section-title">Informatics 24 Gallery</h2>
+  <p class="section-subtitle">Every picture tells a story of our journey</p>
+
+  <div class="gallery">
+    <div class="gallery-item" data-title="Forest Path" data-desc="Aerial view of a road cutting through dense forest." data-img="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="gallery-item" data-title="Portrait" data-desc="Portrait image example that fits perfectly without black borders." data-img="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="gallery-item" data-title="Cottage House" data-desc="A cozy house surrounded by flowers and nature’s calm atmosphere." data-img="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="gallery-item" data-title="Mountain Lake" data-desc="Serene mountain lake with reflections of peaks and sky." data-img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="gallery-item" data-title="Foggy Trees" data-desc="A calm morning view with foggy pine trees in the distance." data-img="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+    <div class="gallery-item" data-title="Sunset Horizon" data-desc="A warm sunset glow illuminating the distant horizon." data-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <span class="close-btn" id="close">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <div class="caption">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Infinite Moving Cards Section ===================== -->
+<section id="quotes" class="quotes-section">
+  <h2 class="section-title">Notes</h2>
+  <p class="section-subtitle">Create/Add your quotes, Notes And letter for Vanguard</p>
+
+  <!-- Baris Pertama -->
+  <div class="container">
+    <div class="scroller" data-direction="right" data-speed="slow">
+      <ul class="scroller__inner" id="card-list-1">
+        <!-- Cards diisi lewat JS -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Baris Kedua -->
+  <div class="container">
+    <div class="scroller" data-direction="left" data-speed="slow">
+      <ul class="scroller__inner" id="card-list-2">
+        <!-- Cards diisi lewat JS -->
+      </ul>
+    </div>
+  </div>
+  <!-- Tombol Add Notes -->
+<div class="add-notes-container">
+    <button class="open-modal-btn" id="openBtn">Add Notes</button>
+</div>
+
+<!-- Modal Notes -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="note-modal">
+    <!-- Header -->
+    <div class="modal-header">
+      <div>
+        <h2>Add a New Note 📝</h2>
+        <p class="modal-subtitle">Write down your thoughts, memories, or messages for Vanguard 24 ✨</p>
+      </div>
+      <button class="close-btn" id="closeBtn">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <form id="noteForm">
+        <div class="form-group">
+          <label for="noteTitle">Title</label>
+          <input type="text" id="noteTitle" name="noteTitle" placeholder="Enter your note title" required>
         </div>
-    </section>
 
+        <div class="form-group">
+          <label for="noteSubtitle">Subtitle</label>
+          <input type="text" id="noteSubtitle" name="noteSubtitle" placeholder="Enter subtitle (optional)">
+        </div>
+
+        <div class="form-group">
+          <label for="noteText">Note</label>
+          <textarea id="noteText" name="noteText" placeholder="Write your note here..." required></textarea>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-submit" id="submitBtn">Save Note</button>
+      <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+   
     <!-- Footer -->
     <footer>
         <div class="footer-container">
@@ -348,7 +429,173 @@
         }
 
         window.addEventListener("load", typeEffect);
-    </script>
+   
+    // Floating element follow mouse
+    document.addEventListener('mousemove', (e) => {
+        const floatingElements = document.querySelectorAll('.floating-element');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        floatingElements.forEach((element, index) => {
+            const move = 20 * (index + 1);
+            element.style.transform = `translate(${x * move}px, ${y * move}px)`;
+        });
+    });
+
+    const items = document.querySelectorAll('.gallery-item');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const closeBtn = document.getElementById('close');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      modalImg.src = item.dataset.img;
+      modalTitle.textContent = item.dataset.title;
+      modalDesc.textContent = item.dataset.desc;
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  const testimonials = [
+  {
+    quote:
+      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness...",
+    name: "Charles Dickens",
+    title: "A Tale of Two Cities",
+  },
+  {
+    quote:
+      "To be, or not to be, that is the question...",
+    name: "William Shakespeare",
+    title: "Hamlet",
+  },
+  {
+    quote: "All that we see or seem is but a dream within a dream.",
+    name: "Edgar Allan Poe",
+    title: "A Dream Within a Dream",
+  },
+  {
+    quote:
+      "It is a truth universally acknowledged, that a single man in possession of a good fortune...",
+    name: "Jane Austen",
+    title: "Pride and Prejudice",
+  },
+  {
+    quote:
+      "Call me Ishmael. Some years ago—never mind how long precisely....",
+    name: "Herman Melville",
+    title: "Moby-Dick",
+  },
+];
+
+// Fungsi umum untuk buat scroller
+function createScroller(listId, direction, speed) {
+  const scroller = document.querySelector(`#${listId}`).parentElement.parentElement;
+  const scrollerInner = document.getElementById(listId);
+
+  // Buat kartu
+  testimonials.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "card";
+    li.innerHTML = `
+      <blockquote>${item.quote}</blockquote>
+      <div class="author">
+        <div class="name">${item.name}</div>
+        <div class="title">${item.title}</div>
+      </div>
+    `;
+    scrollerInner.appendChild(li);
+  });
+
+  // Gandakan untuk efek infinite
+  const cards = Array.from(scrollerInner.children);
+  cards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    scrollerInner.appendChild(clone);
+  });
+
+  // Arah & kecepatan
+  if (direction === "left") {
+    scroller.style.setProperty("--animation-direction", "forwards");
+  } else {
+    scroller.style.setProperty("--animation-direction", "reverse");
+  }
+
+  if (speed === "fast") {
+    scroller.style.setProperty("--animation-duration", "20s");
+  } else if (speed === "normal") {
+    scroller.style.setProperty("--animation-duration", "40s");
+  } else {
+    scroller.style.setProperty("--animation-duration", "80s");
+  }
+
+  scrollerInner.classList.add("animate-scroll");
+}
+
+// Jalankan untuk dua baris
+createScroller("card-list-1", "right", "slow");
+createScroller("card-list-2", "left", "slow");
+// ================== Modal Notes ==================
+const openNoteModalBtn = document.getElementById('openBtn');
+const modalOverlay = document.getElementById('modalOverlay');
+const noteCloseBtn = document.getElementById('closeBtn');
+const noteCancelBtn = document.getElementById('cancelBtn');
+const noteSubmitBtn = document.getElementById('submitBtn');
+const noteForm = document.getElementById('noteForm');
+
+// Buka modal ketika tombol Add Notes ditekan
+openNoteModalBtn.addEventListener('click', () => {
+  modalOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+});
+
+// Tutup modal (fungsi reusable)
+function closeNoteModal() {
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
+  noteForm.reset();
+}
+
+// Tombol close dan cancel
+noteCloseBtn.addEventListener('click', closeNoteModal);
+noteCancelBtn.addEventListener('click', closeNoteModal);
+
+// Tutup modal ketika klik di luar konten modal
+modalOverlay.addEventListener('click', e => {
+  if (e.target === modalOverlay) closeNoteModal();
+});
+
+// Nonaktifkan fungsi submit (karena hanya tampilan)
+noteSubmitBtn.addEventListener('click', e => {
+  e.preventDefault();
+  alert("💡 Form belum aktif — ini hanya tampilan saja.");
+});
+
+// Tutup dengan tombol Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+    closeNoteModal();
+  }
+});
+
+</script>
+
+    
 </body>
 
 </html>
