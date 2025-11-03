@@ -21,7 +21,6 @@ Panduan lengkap untuk menjalankan project ini di Windows atau Linux.
 ```bash
 git clone https://github.com/Kiagusss/Vanguard24.git
 cd Vanguard24
-git checkout new-landing
 ```
 
 ### 3. Copy Environment File
