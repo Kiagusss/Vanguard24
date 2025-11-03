@@ -33,10 +33,7 @@ class GalleriesTable
                 TextColumn::make('type')
                     ->label('Tipe')
                     ->sortable(),
-                IconColumn::make('is_hero')
-                    ->label('Hero')
-                    ->boolean()
-                    ->sortable(),
+               
                 TextColumn::make('category')
                     ->label('Kategori')
                     ->badge()
