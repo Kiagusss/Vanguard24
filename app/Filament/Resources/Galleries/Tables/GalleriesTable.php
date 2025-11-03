@@ -37,10 +37,25 @@ class GalleriesTable
                     ->label('Hero')
                     ->boolean()
                     ->sortable(),
-                IconColumn::make('is_achievement')
-                    ->label('Prestasi')
-                    ->boolean()
+                TextColumn::make('category')
+                    ->label('Kategori')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'prestasi' => 'success',
+                        'about' => 'warning',
+                        'moments' => 'info',
+                        default => 'gray',
+                    })
                     ->sortable(),
+                TextColumn::make('description')
+                    ->label('Deskripsi')
+                    ->limit(50)
+                    ->visible(fn($record) => $record && $record->category === 'about'),
+                IconColumn::make('is_achievement')
+                    ->label('Prestasi (Legacy)')
+                    ->boolean()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label('Dibuat Pada')
                     ->dateTime('d M Y H:i'),

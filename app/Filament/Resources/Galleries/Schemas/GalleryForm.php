@@ -35,15 +35,30 @@ class GalleryForm
                 ->visibility('public')
                 ->imageEditor()
                 ->previewable(true),
-            Toggle::make('is_hero')
-                ->label('Hero')
-                ->helperText('Tandai foto ini untuk muncul di bagian About')
-                ->inline(false),
+            
+
+            Select::make('category')
+                ->label('Kategori')
+                ->options([
+                    'prestasi' => 'Prestasi',
+                    'about' => 'About Us',
+                    'moments' => 'Our Moments',
+                ])
+                ->helperText('Prestasi: slider kartu prestasi, About Us: section about, Our Moments: gallery foto biasa')
+                ->nullable()
+                ->reactive(),
+
+            Forms\Components\Textarea::make('description')
+                ->label('Deskripsi About Us')
+                ->helperText('Teks yang akan muncul di section About Us ketika foto ini aktif')
+                ->rows(4)
+                ->visible(fn(callable $get) => $get('category') === 'about'),
 
             Toggle::make('is_achievement')
-                ->label('Prestasi')
-                ->helperText('Tandai foto ini sebagai foto prestasi')
-                ->inline(false),
+                ->label('Prestasi (Legacy)')
+                ->helperText('DEPRECATED: Gunakan field Kategori sebagai gantinya')
+                ->inline(false)
+                ->hidden(),
         ]);
     }
 }

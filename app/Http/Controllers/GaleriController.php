@@ -12,6 +12,7 @@ class GaleriController extends Controller
         $photos = Gallery::latest()->get();
         $heroImage = Gallery::where('is_hero', true)->latest()->first();
         $achievementPhotos = Gallery::where('is_achievement', true)->latest()->get();
+        $aboutPhotos = Gallery::where('category', 'about')->latest()->get();
         $galleries = Gallery::where('is_hero', false)
                         ->where('is_achievement', false)
                         ->get();
@@ -21,6 +22,6 @@ class GaleriController extends Controller
             $heroImage = $photos->first();
         }
 
-        return view('galeri', compact('photos', 'heroImage', 'achievementPhotos', 'galleries'));
+        return view('galeri', compact('photos', 'heroImage', 'achievementPhotos', 'galleries', 'aboutPhotos'));
     }
 }

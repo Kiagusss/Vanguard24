@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->boolean('is_hero')->default(false);
             $table->boolean('is_achievement')->default(false);
             $table->integer('hero_order')->nullable();
+            $table->string('category')->nullable(); // prestasi, about, moments
+            $table->text('description')->nullable(); // deskripsi untuk About Us
             $table->timestamps();
         });
     }

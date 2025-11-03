@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard 24</title>
+    <link rel="stylesheet" href="/landing-page/css/style.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+                <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="/landing-page/images/logo.png" alt="Vanguard 24 Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="active">Beranda</a>
+                <a href="#about">About us</a>
+                <a href="#prestasi">Prestasi</a>
+                <a href="#">Foto</a>
+                <a href="#">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="slide-up">Selamat Datang <br> di Web Angkatan Infomatika 2024</h1>
+                <p class="slide-up">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <div class="social-links">
+                <a href="#" class="social-icon"><img src="/landing-page/images/ig.png" alt="Instagram"></a>
+                <a href="#" class="social-icon"><img src="/landing-page/images/wa.png" alt="WhatsApp"></a>
+                <a href="#" class="social-icon"><img src="/landing-page/images/tt.png" alt="TikTok"></a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section directly below hero with background image bg1.png -->
+    <section class="bg-section" id="about">
+        <div class="bg-container">
+            <!-- Feature row: photo (foto-adit) + placeholder content -->
+                        <div class="feature-row">
+                <div class="feature-photo">
+                    <img src="/landing-page/images/foto-adit.png" alt="Foto Adit">
+                </div>
+                <div class="feature-placeholder">
+                    <div class="feature-content slide-right">
+                        <h2>ABOUT US</h2>
+                        <div class="divider"></div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        <a href="#" id="feature-next" class="btn">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section directly below bg1 using images/bg2.png -->
+    <section class="bg-section-2" id="prestasi">
+        <div class="bg-container">
+            <!-- Prestasi / Awards row: center poster with side story cards -->
+            <div class="awards-row">
+                <div class="awards-carousel" id="awards-carousel">
+                    <div class="award-card" data-award-index="0">
+                        <img src="images/p1.jpeg" alt="prestasi 1">
+                    </div>
+                    <div class="award-card" data-award-index="1">
+                        <img src="images/p2.png" alt="prestasi 2">
+                    </div>
+                    <div class="award-card" data-award-index="2">
+                        <img src="images/p1.jpeg" alt="prestasi 3">
+                    </div>
+                    <div class="award-card" data-award-index="3">
+                        <img src="images/p2.png" alt="prestasi 4">
+                    </div>
+                    <div class="award-card" data-award-index="4">
+                        <img src="images/p1.jpeg" alt="prestasi 5">
+                    </div>
+                    <div class="award-card" data-award-index="5">
+                        <img src="images/p2.png" alt="prestasi 6">
+                    </div>
+                    <div class="award-card" data-award-index="6">
+                        <img src="images/p1.jpeg" alt="prestasi 7">
+                    </div>
+                    <div class="award-card" data-award-index="7">
+                        <img src="images/p2.png" alt="prestasi 8">
+                    </div>
+                    <div class="award-card" data-award-index="8">
+                        <img src="images/p1.jpeg" alt="prestasi 9">
+                    </div>
+                    <div class="award-card" data-award-index="9">
+                        <img src="images/p2.png" alt="prestasi 10">
+                    </div>
+                    <div class="award-card" data-award-index="10">
+                        <img src="images/p1.jpeg" alt="prestasi 11">
+                    </div>
+                    <div class="award-card" data-award-index="11">
+                        <img src="images/p2.png" alt="prestasi 12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section with bg1 -->
+    <section class="bg-section" id="section-3">
+        <div class="bg-container">
+            <!-- OUR MOMENTS section -->
+            <div class="moments-section">
+                <h2 class="moments-title slide-up">OUR MOMENTS</h2>
+                <div class="moments-grid">
+                    <div class="moment-card fade-in">
+                        <img data-src="images/Fz24YrkXoAAW47C.png" alt="Moment 1">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/Gce8KdoaMAILwpR.jpeg" alt="Moment 2">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/GffRoJxXQAEiU8M.jpeg" alt="Moment 3">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/GrDUnH1XkAAZD8Q.jpg" alt="Moment 4">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/1.png" alt="Moment 5">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/GtjrVjwWcAARz0H.jpeg" alt="Moment 6">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/GuEBHOnWwAA-2dm.jpeg" alt="Moment 7">
+                    </div>
+                    <div class="moment-card" onclick="openLightbox(this)">
+                        <img src="images/Gx_iu8QWYAEJmfY.jpg" alt="Moment 8">
+                    </div>
+                </div>
+                <div class="moments-footer">
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section with bg2 -->
+    <section class="bg-section-2" id="section-4">
+        <div class="bg-container">
+            <div class="messages-section">
+                <h2 class="messages-title slide-up">PESAN & KESAN</h2>
+                
+                <!-- Messages Display -->
+                <div class="messages-display">
+                    <div class="message fade-in">
+                        <div class="message-content">
+                            <h3>HAZIO</h3>
+                            <p>Seru sih bareng Vanguard24, kadang chaos tapi tetep jalan. Semangat terus broo.</p>
+                        </div>
+                    </div>
+
+                    <div class="message fade-in">
+                        <div class="message-content">
+                            <h3>ZIQRI</h3>
+                            <p>Gue suka cara kita saling back-up, bahkan pas sama-sama gak ngerti 😅.</p>
+                        </div>
+                    </div>
+
+                    <div class="message fade-in">
+                        <div class="message-content">
+                            <h3>GILANG</h3>
+                            <p>Bangga jadi bagian dari Vanguard24. Kita bukan angkatan biasa, kita keluarga prosis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Form -->
+                <div class="message-form slide-up">
+                    <h3>Kirim Pesan</h3>
+                    <form id="messageForm">
+                        <input type="text" name="name" placeholder="Nama" required>
+                        <textarea name="message" placeholder="Pesan" required></textarea>
+                        <button type="submit" class="btn">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <span class="X"></span>
+                <span class="Y"></span>
+                <div class="close-text">Close</div>
+            </button>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script src="/landing-page/js/main.js"></script>
+    <script src="/landing-page/js/messages.js"></script>
+</body>
+</html>

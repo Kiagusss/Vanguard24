@@ -17,6 +17,8 @@ class Gallery extends Model
         'is_hero',
         'is_achievement',
         'hero_order',
+        'category',   // prestasi | about | moments
+        'description', // untuk teks About Us
     ];
 
     protected $casts = [
