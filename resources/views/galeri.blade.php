@@ -15,30 +15,36 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="{{asset('images/Vanguard-Logo2.jpg')}}" alt="as" width="50px" height="50px">
-                    <a href="#" class="logo">Vanguard</a>
+   <header id="main-header" class="apple-navbar">
+  <nav>
+    <a href="#" class="logo-container">
+      <img src="{{ asset('images/Vanguard-Logo2.jpg') }}" alt="Vanguard" class="logo-img" />
+      <span class="logo">Vanguard</span>
+    </a>
 
-            </div>
+    <ul class="nav-links">
+      <li><a href="#features">About</a></li>
+      <li><a href="#testimonials">Leaders</a></li>
+      <li><a href="#pricing">Gallery</a></li>
+      <li><a href="#quotes">Notes</a></li>
+    </ul>
 
-            <ul class="nav-links">
-                <li><a href="#features">About</a></li>
-                <li><a href="#testimonials">Leaders</a></li>
-                <li><a href="#pricing">Gallery</a></li>
-                <li><a href="#contact">Notes</a></li>
-            </ul>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
+  <div class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="#features">About</a></li>
+      <li><a href="#testimonials">Leaders</a></li>
+      <li><a href="#pricing">Gallery</a></li>
+      <li><a href="#quotes">Notes</a></li>
+    </ul>
+  </div>
+</header>
     <!-- Hero Section -->
     <section class="hero">
         <h1 id="typing-text"></h1>
