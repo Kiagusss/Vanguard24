@@ -5,6 +5,50 @@
   const mobileNav = document.getElementById("mobile-nav") || document.querySelector(".nav-links");
   let lastScrollTop = 0;
 
+  // ===================== Hero Scroll Animation Initialization =====================
+  function initHeroScroll() {
+      const column1Images = [
+          'photo1.png',
+          'photo2.png',
+          'photo5.png',
+         
+      ];
+
+      const column2Images = [
+          'photo3.png',
+          'photo4.png',
+          'photo6.png',
+        
+      ];
+
+      const column1 = document.getElementById('scrollColumn1');
+      const column2 = document.getElementById('scrollColumn2');
+
+        function buildColumn(columnEl, images) {
+          if (!columnEl) return;
+          const groupHtml = images
+            .map((image) => `<div class="scroll-item"><img src="/images/${image}" alt="Image" loading="lazy"></div>`)
+            .join('');
+
+          // Track contains two identical groups for a seamless loop.
+          columnEl.innerHTML = `
+            <div class="scroll-track">
+              <div class="scroll-group">${groupHtml}</div>
+              <div class="scroll-group" aria-hidden="true">${groupHtml}</div>
+            </div>
+          `;
+        }
+
+        buildColumn(column1, column1Images);
+        buildColumn(column2, column2Images);
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+      // Small delay to ensure components are loaded
+      setTimeout(initHeroScroll, 100);
+  });
+
   // ===================== Toast Notification Function =====================
         function showToast(message, type = 'success', title = null) {
           const container = document.getElementById('toastContainer');
@@ -165,6 +209,7 @@
   const typingText = document.getElementById("typing-text");
   let index = 0;
   function typeEffect() {
+    if (!typingText) return;
     if (index < text.length) {
       typingText.textContent += text.charAt(index);
       index++;
@@ -244,31 +289,95 @@
     },
   ];
 
-// Fungsi untuk fetch notes dari database
-async function fetchNotes() {
-  try {
-    const response = await fetch('/messages');
-    const messages = await response.json();
-    
-    // Jika ada messages dari database, gunakan itu. Kalau tidak, pakai default
-    if (messages && messages.length > 0) {
-      return messages.map(message => ({
-        quote: message.message,
-        name: message.name,
-        title: '' // tidak ada subtitle
-      }));
-    }
-    return testimonials; // fallback ke data default
-  } catch (error) {
-    console.error('Error fetching notes:', error);
-    return testimonials; // fallback ke data default
-  }
+// ================== Note Form - Simple Submit ==================
+// Form akan di-handle via AJAX supaya langsung tampil di landing page
+
+function getCsrfToken() {
+  const meta = document.querySelector('meta[name="csrf-token"]');
+  return meta ? meta.getAttribute('content') : null;
 }
+
+function renderNoteCard(note) {
+  const card = document.createElement('div');
+  card.className = 'message-card';
+  card.innerHTML = `
+    <div class="message-text"></div>
+    <div class="message-time">just now</div>
+  `;
+  const textEl = card.querySelector('.message-text');
+  textEl.textContent = note?.note ?? '';
+  return card;
+}
+
+async function initCommunityNotes() {
+  const noteForm = document.getElementById('noteForm');
+  const notesWall = document.getElementById('notesWall');
+  if (!noteForm || !notesWall) return;
+
+  noteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const csrf = getCsrfToken();
+    const submitBtn = noteForm.querySelector('button[type="submit"]');
+    const textarea = noteForm.querySelector('textarea[name="note"]');
+    const noteValue = textarea ? textarea.value.trim() : '';
+
+    if (!noteValue) return;
+
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(noteForm);
+      const res = await fetch(noteForm.action, {
+        method: 'POST',
+        headers: {
+          ...(csrf ? { 'X-CSRF-TOKEN': csrf } : {}),
+          'Accept': 'application/json',
+        },
+        body: formData,
+      });
+
+      if (!res.ok) {
+        // Validation error (422) or others
+        let msg = 'Failed to submit note.';
+        try {
+          const data = await res.json();
+          if (data?.message) msg = data.message;
+        } catch {}
+        if (typeof showToast === 'function') showToast(msg, 'error');
+        return;
+      }
+
+      const note = await res.json();
+
+      // Remove empty state if exists
+      const emptyState = notesWall.querySelector('.empty-state');
+      if (emptyState) emptyState.remove();
+
+      // Prepend newest note
+      notesWall.prepend(renderNoteCard(note));
+
+      if (textarea) textarea.value = '';
+      if (typeof showToast === 'function') showToast('Note submitted!', 'success');
+    } catch (err) {
+      if (typeof showToast === 'function') showToast('Network error. Try again.', 'error');
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initCommunityNotes);
+
 
 // Fungsi umum untuk buat scroller
 async function createScroller(listId, direction, speed) {
   const scrollerInner = document.getElementById(listId);
-  const scroller = scrollerInner.parentElement.parentElement;
+  if (!scrollerInner) return;
+  if (typeof fetchNotes !== 'function') return;
+
+  const scroller = scrollerInner.parentElement?.parentElement;
+  if (!scroller) return;
 
   // Clear previous content
   scrollerInner.innerHTML = '';
@@ -310,104 +419,10 @@ async function createScroller(listId, direction, speed) {
   }
 }
 
-  createScroller("card-list-1", "right", "slow");
-  createScroller("card-list-2", "left", "slow");
+  if (document.getElementById('card-list-1')) createScroller("card-list-1", "right", "slow");
+  if (document.getElementById('card-list-2')) createScroller("card-list-2", "left", "slow");
 
-  // ================== Modal Notes ==================
-  const openNoteModalBtn = document.getElementById("openBtn");
-  const modalOverlay = document.getElementById("modalOverlay");
-  const noteCloseBtn = document.getElementById("closeBtn");
-  const noteCancelBtn = document.getElementById("cancelBtn");
-  const noteSubmitBtn = document.getElementById("submitBtn");
-  const noteForm = document.getElementById("noteForm");
-
-  openNoteModalBtn?.addEventListener("click", () => {
-    modalOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-
-  function closeNoteModal() {
-    modalOverlay.classList.remove("active");
-    document.body.style.overflow = "auto";
-    noteForm.reset();
-  }
-
-  noteCloseBtn?.addEventListener("click", closeNoteModal);
-  noteCancelBtn?.addEventListener("click", closeNoteModal);
-  modalOverlay?.addEventListener("click", e => {
-    if (e.target === modalOverlay) closeNoteModal();
-  });
-
-
-// Tutup dengan tombol Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-    closeNoteModal();
-  }
-});
-
-
-// Nonaktifkan fungsi submit (karena hanya tampilan)
-noteSubmitBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
-  
-  const name = document.getElementById('noteName').value;
-  const message = document.getElementById('noteText').value;
-  
-  if (!name || !message) {
-    showToast('Please fill in both name and note fields!', 'warning', 'Missing Information');
-    return;
-  }
-  
-  // Disable button saat submit
-  noteSubmitBtn.disabled = true;
-  noteSubmitBtn.textContent = 'Sending...';
-  
-  try {
-    const response = await fetch('/message', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || ''
-      },
-      body: JSON.stringify({
-        name: name,
-        message: message
-      })
-    });
-    
-    const data = await response.json();
-    
-    if (data.success) {
-      showToast('Your note has been successfully added! ✨', 'success', 'Note Saved!');
-      closeNoteModal();
-      
-      // Reload scrollers dengan delay kecil untuk refresh
-      setTimeout(async () => {
-        await createScroller("card-list-1", "right", "slow");
-        await createScroller("card-list-2", "left", "slow");
-      }, 100);
-    } else {
-      showToast('Failed to save your note. Please try again.', 'error', 'Save Failed');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    showToast('An error occurred while saving. Please check your connection.', 'error', 'Connection Error');
-  } finally {
-    // Re-enable button
-    noteSubmitBtn.disabled = false;
-    noteSubmitBtn.textContent = 'Save Note';
-  }
-});
-
-// Tutup dengan tombol Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-    closeNoteModal();
-  }
-});
-
-// ===================== Awards Carousel Functionality =====================
+  // ===================== Awards Carousel Functionality =====================
 (function initAwardsCarousel() {
   const carousel = document.getElementById('awards-carousel');
   if (!carousel) return;

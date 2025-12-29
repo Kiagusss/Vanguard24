@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/messages', [MessageController::class, 'store']);
-Route::get('/messages', [MessageController::class, 'getMessages']);
+Route::post('/notes', [NoteController::class, 'store']);
+Route::get('/notes', [NoteController::class, 'index']);

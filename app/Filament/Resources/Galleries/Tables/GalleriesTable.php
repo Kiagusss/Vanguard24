@@ -21,38 +21,47 @@ class GalleriesTable
                 TextColumn::make('id')
                     ->label('ID')
                     ->sortable(),
+
                 TextColumn::make('title')
                     ->label('Judul')
                     ->searchable()
                     ->sortable(),
+
                 ImageColumn::make('file')
-                    ->label('Media')
-                    ->disk('public')
-                    ->height(80)
-                    ->width(120),
+    ->label('Media')
+    ->disk('public')
+    ->height(80)
+    ->width(120)
+    ->url(fn ($record) => asset('storage/' . $record->file))
+    ->openUrlInNewTab(),
+
+
                 TextColumn::make('type')
                     ->label('Tipe')
                     ->sortable(),
-               
+
                 TextColumn::make('category')
                     ->label('Kategori')
                     ->badge()
-                    ->color(fn(string $state): string => match ($state) {
+                    ->color(fn (string $state): string => match ($state) {
                         'prestasi' => 'success',
                         'about' => 'warning',
                         'moments' => 'info',
                         default => 'gray',
                     })
                     ->sortable(),
+
                 TextColumn::make('description')
                     ->label('Deskripsi')
                     ->limit(50)
-                    ->visible(fn($record) => $record && $record->category === 'about'),
+                    ->visible(fn ($record) => $record && $record->category === 'about'),
+
                 IconColumn::make('is_achievement')
                     ->label('Prestasi (Legacy)')
                     ->boolean()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('created_at')
                     ->label('Dibuat Pada')
                     ->dateTime('d M Y H:i'),

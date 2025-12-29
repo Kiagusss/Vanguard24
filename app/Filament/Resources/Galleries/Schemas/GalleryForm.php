@@ -27,14 +27,16 @@ class GalleryForm
                 ])
                 ->required(),
 
-            FileUpload::make('file')
-                ->label('Media')
-                ->required()
-                ->disk('public')
-                ->directory('galleries')
-                ->visibility('public')
-                ->imageEditor()
-                ->previewable(true),
+           FileUpload::make('file')
+    ->label('Media')
+    ->required()
+    ->disk('public')
+    ->directory('galleries')
+    ->visibility('public')
+    ->image()
+    ->imageEditor()
+    ->previewable(true),
+
             
 
             Select::make('category')

@@ -3,28 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
-use App\Models\Message;
+use App\Models\Note;
+use App\Models\Schedule;
+use App\Models\Birthday;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LandingController extends Controller
 {
     public function index()
     {
-        // Hero images (is_hero = true, any category)
-        $heroes = Gallery::where('is_hero', true)->get();
+        // Ambil semua galleries untuk gallery section
+        $galleries = Gallery::latest()->get();
 
-        // Ambil gambar prestasi untuk slider card
-        $prestasi = Gallery::where('category', 'prestasi')->get();
+        // Ambil gambar About Us untuk section about
+        $aboutPhotos = Gallery::where('category', 'about')->latest()->get();
 
-        // Ambil gambar About Us
-        $aboutImages = Gallery::where('category', 'about')->get();
+        // Notes - tampilkan semua notes saat initial load
+        $notes = Note::latest()->get();
 
-        // Ambil gambar Our Moments (gallery biasa)
-        $moments = Gallery::where('category', 'moments')->get();
+        // Schedules langsung dari database
+        $schedules = Schedule::orderBy('day')
+            ->orderBy('time')
+            ->get();
 
-        // Messages - tampilkan semua pesan saat initial load
-        $messages = Message::latest()->get();
+        // Birthdays: hitung next occurrence (tanpa peduli tahun input)
+        $today = Carbon::today();
+        $birthdays = Birthday::all()
+            ->map(function ($birthday) use ($today) {
+                $base = Carbon::parse($birthday->date);
+                $next = Carbon::create($today->year, $base->month, $base->day);
+                if ($next->lt($today)) {
+                    $next->addYear();
+                }
 
-        return view('landing', compact('heroes', 'prestasi', 'aboutImages', 'moments', 'messages'));
+                return [
+                    'name' => $birthday->name,
+                    'date' => $birthday->date->format('Y-m-d'),
+                    'next_occurrence' => $next->format('Y-m-d'),
+                    'display' => $next->format('d F'),
+                    'month' => $next->month,
+                    'year' => $next->year,
+                ];
+            })
+            ->sortBy('next_occurrence')
+            ->values();
+
+        return view('landing', compact('galleries', 'aboutPhotos', 'notes', 'schedules', 'birthdays'));
     }
 }

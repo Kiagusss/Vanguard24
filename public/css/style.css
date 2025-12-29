@@ -202,85 +202,6 @@ nav {
 }
 
 
-            /* Hero Section */
-            .hero {
-                max-width: 1200px;
-                margin: 0 auto;
-                 padding: 10rem 2rem 6rem; 
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
-                font-weight: 800;
-                margin-bottom: 1.5rem;
-                line-height: 1.2;
-                color: var(--text-primary);
-                 
-            }
-            /* Typing Text Animation */
-#typing-text {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  display: inline-block;
-  border-right: 3px solid var(--accent);
-  white-space: nowrap;
-  overflow: hidden;
-  animation: blinkCursor 0.8s infinite;
-    
-}
-
-/* Cursor blinking effect */
-@keyframes blinkCursor {
-  50% { border-color: transparent; }
-}
-
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  #typing-text {
-    font-size: 2rem;
-     max-width: 100vw; /* ✅ biar responsif */
-      white-space: normal; /* ✅ boleh wrap */
-  }
-}
-
-
-            .hero p {
-                font-size: 1.25rem;
-                color: var(--text-secondary);
-                margin-bottom: 2rem;
-                max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-        .hero-buttons {
-    display: flex;
-    flex-direction: column; /* atas ke bawah */
-    align-items: center;    /* tengah horizontal */
-    justify-content: center; /* tengah vertikal */
-    gap: 1rem;
-    flex-wrap: wrap;
-    }
-
-            .btn-secondary {
-                background-color: transparent;
-                color: var(--text-primary);
-                border: 2px solid var(--border);
-                padding: 0.75rem 1.5rem;
-                border-radius: 50px;
-                cursor: pointer;
-                font-weight: 600;
-                transition: all 0.3s ease;
-                font-size: 0.95rem;
-            }
-
-            .btn-secondary:hover {
-                border-color: var(--accent);
-                color: var(--accent);
-                transform: translateY(-2px);
-            }
 
             /* Features Section */
             .features {
@@ -827,14 +748,6 @@ footer {
                     gap: 1rem;
                 }
 
-                .hero h1 {
-                    font-size: 2rem;
-                }
-
-                .hero p {
-                    font-size: 1rem;
-                }
-
                 .section-title {
                     font-size: 1.8rem;
                 }
@@ -853,22 +766,6 @@ footer {
             @media (max-width: 480px) {
                 nav {
                     padding: 1rem;
-                }
-
-                .hero {
-                    padding: 3rem 1rem;
-                }
-
-                .hero h1 {
-                    font-size: 1.5rem;
-                }
-
-                .hero-buttons {
-                    flex-direction: column;
-                }
-
-                .btn-primary, .btn-secondary {
-                    width: 100%;
                 }
 
                 .features, .testimonials, .pricing, .final-cta {
@@ -1475,6 +1372,27 @@ footer {
   }
 }
 
+.award-card.is-center img {
+  max-height: 500px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .awards-carousel {
+    gap: 1rem;
+    padding-left: calc(50vw - 90px);
+    padding-right: calc(50vw - 90px);
+  }
+  .award-card {
+    width: 180px;
+    height: 280px;
+  }
+  .award-card.is-center {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
 .open-modal-btn {
   background: linear-gradient(135deg, #001f3f, #003366);
   color: #ffffff;
@@ -1719,3 +1637,989 @@ footer {
     transform: translateY(20px);
   }
 }
+
+/* ==================== HERO SECTION NEW STYLES ==================== */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  /* Extra top padding so content doesn't sit under the fixed navbar */
+  padding: clamp(110px, 12vh, 160px) 20px clamp(48px, 10vh, 96px);
+    background: transparent;
+    overflow: hidden;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-content {
+  padding-right: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(40, 49, 77, 0.1);
+    border-radius: 20px;
+    font-size: 14px;
+    color: #28314d;
+    margin-bottom: 24px;
+}
+
+.hero .hero-title {
+  font-size: clamp(32px, 5vw, 64px);
+    font-weight: 700;
+    color: #28314d;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero .hero-title .highlight {
+    background: #28314d;
+    color: white;
+    padding: 4px 16px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.hero .hero-description {
+  font-size: clamp(15px, 1.6vw, 18px);
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.hero-btn-primary {
+    background: #28314d;
+    color: white;
+}
+
+.hero-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(40, 49, 77, 0.3);
+}
+
+.hero-btn-secondary {
+    background: transparent;
+    color: #28314d;
+    border: 2px solid #28314d;
+}
+
+.hero-btn-secondary:hover {
+    border-color: #28314d;
+    background: rgba(40, 49, 77, 0.05);
+}
+
+.hero-visual {
+  position: relative;
+  height: 600px;
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.scroll-column {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-track {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.scroll-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px; /* ensures perfect seam between groups */
+}
+
+.scroll-column-down .scroll-track {
+  animation: scrollDown 20s linear infinite;
+}
+
+.scroll-column-up .scroll-track {
+  animation: scrollUp 20s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.scroll-item {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #28314d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Hero */
+@media (max-width: 1200px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    margin: 0 auto;
+    max-width: 760px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+    .hero {
+      padding: clamp(96px, 12vh, 130px) 16px 48px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .hero-visual {
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    /* Mobile: horizontal scroll for better use of short height */
+    .scroll-column {
+      height: 140px;
+    }
+
+    .scroll-track {
+      flex-direction: row;
+    }
+
+    .scroll-group {
+      flex-direction: row;
+      gap: 16px;
+      padding-bottom: 0;
+      padding-right: 16px; /* seam spacing for horizontal loop */
+    }
+
+    .scroll-column-down .scroll-track {
+      animation: scrollLeft 18s linear infinite;
+    }
+
+    .scroll-column-up .scroll-track {
+      animation: scrollRight 18s linear infinite;
+    }
+
+    .scroll-item {
+      padding: 14px;
+      min-height: 120px;
+      min-width: 140px;
+    }
+}
+
+@media (max-width: 640px) {
+  .hero-container {
+    gap: 28px;
+  }
+
+  .hero-visual {
+    height: 220px;
+    gap: 12px;
+  }
+
+  .scroll-column {
+    gap: 12px;
+  }
+
+  .scroll-item {
+    padding: 12px;
+    min-height: 110px;
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .hero-visual {
+    height: 240px;
+  }
+
+  .scroll-item {
+    padding: 12px;
+    min-height: 110px;
+    min-width: 120px;
+  }
+
+  /* Keep both columns visible on mobile (2 rows) */
+  .scroll-column {
+    height: 110px;
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ==================== MESSAGES & SCHEDULE STYLES ==================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #28314d;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: rgba(40, 49, 77, 0.6);
+    font-size: 15px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.message-section {
+    background: #ffffff;
+    border: 1px solid rgba(40, 49, 77, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #28314d;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    color: rgba(40, 49, 77, 0.6);
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+textarea, input[type="text"], .search-box {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(40, 49, 77, 0.2);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.2s;
+}
+
+textarea:focus, input[type="text"]:focus, .search-box:focus {
+    outline: none;
+    border-color: #28314d;
+}
+
+input[type="text"] {
+    min-height: auto;
+}
+
+.btn {
+    background: #28314d;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.messages-wall {
+    columns: 2;
+    column-gap: 16px;
+}
+
+.message-card {
+    background: #f8f9fa;
+    border: 1px solid rgba(40, 49, 77, 0.08);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    break-inside: avoid;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.message-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 49, 77, 0.08);
+}
+
+.message-text {
+    color: #28314d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+.message-time {
+    color: rgba(40, 49, 77, 0.5);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(40, 49, 77, 0.4);
+    font-size: 14px;
+}
+
+/* ==================== SCHEDULE STYLES ==================== */
+.schedule-section {
+    margin-top: 0;
+}
+
+.schedule-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    border: 1px solid rgba(40, 49, 77, 0.2);
+    background: white;
+    color: #28314d;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: #28314d;
+}
+
+.filter-btn.active {
+    background: #28314d;
+    color: white;
+    border-color: #28314d;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(40, 49, 77, 0.5);
+    font-size: 15px;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.lecture-card {
+    background: #ffffff;
+    border: 1px solid rgba(40, 49, 77, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lecture-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 49, 77, 0.08);
+}
+
+.lecture-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.course-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: #28314d;
+    line-height: 1.4;
+}
+
+.class-tag {
+    background: #28314d;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.lecture-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(40, 49, 77, 0.8);
+}
+
+.info-label {
+    min-width: 80px;
+    font-weight: 500;
+    color: rgba(40, 49, 77, 0.6);
+}
+
+.day-badge, .credits-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(40, 49, 77, 0.06);
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/* ==================== BIRTHDAY SECTION STYLES ==================== */
+.birthday-section {
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(40, 49, 77, 0.1);
+    border-radius: 8px;
+  padding: 30px 30px 30px 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.calendar-nav-btn {
+    background: transparent;
+    border: 1px solid rgba(40, 49, 77, 0.2);
+    color: #28314d;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.calendar-nav-btn:hover {
+    background: #28314d;
+    color: white;
+    border-color: #28314d;
+}
+
+.calendar-month-year {
+    text-align: center;
+}
+
+.calendar-month {
+    font-size: 20px;
+    font-weight: 600;
+    color: #28314d;
+    display: block;
+}
+
+.calendar-year {
+    font-size: 14px;
+    color: rgba(40, 49, 77, 0.6);
+}
+
+.birthday-search {
+    width: 100%;
+    max-width: 400px;
+}
+
+.birthday-search input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid rgba(40, 49, 77, 0.2);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.birthday-search input:focus {
+    outline: none;
+    border-color: #28314d;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 30px;
+  width: 100%;
+  /* Control cell height via aspect ratio variable */
+  --cell-ratio: 2.8; /* width : height (bigger = shorter height) */
+  padding-right: 30px;
+  
+}
+
+.calendar-day-header {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(40, 49, 77, 0.6);
+    padding: 8px 4px;
+}
+
+.calendar-day {
+  aspect-ratio: var(--cell-ratio);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(40, 49, 77, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 4px;
+    position: relative;
+}
+
+.calendar-day:hover {
+    border-color: #28314d;
+    transform: translateY(-2px);
+}
+
+.calendar-day.empty {
+    border: none;
+    cursor: default;
+}
+
+.calendar-day.empty:hover {
+    transform: none;
+}
+
+.calendar-day-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: #28314d;
+}
+
+.calendar-day.has-birthday {
+    background: rgba(40, 49, 77, 0.05);
+    border-color: #28314d;
+    border-width: 2px;
+}
+
+.calendar-day.has-birthday .calendar-day-number {
+    color: #28314d;
+}
+
+.calendar-birthday-indicator {
+    width: 5px;
+    height: 5px;
+    background: #28314d;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 4px;
+}
+
+.calendar-day.today {
+    background: #28314d;
+    border-color: #28314d;
+}
+
+.calendar-day.today .calendar-day-number {
+    color: white;
+}
+
+.calendar-day.today .calendar-birthday-indicator {
+    background: white;
+}
+
+.calendar-day-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: #28314d;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+
+.calendar-day:hover .calendar-day-tooltip {
+    opacity: 1;
+}
+
+.calendar-day-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: #28314d;
+}
+
+.birthday-list {
+    margin-top: 30px;
+}
+
+.birthday-list-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #28314d;
+    margin-bottom: 16px;
+}
+
+.birthday-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.birthday-card {
+    background: #f8f9fa;
+    border: 1px solid rgba(40, 49, 77, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+.birthday-card.today {
+    background: #28314d;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(40, 49, 77, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(40, 49, 77, 0); }
+}
+
+.birthday-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.birthday-date {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.birthday-card.today .birthday-date {
+    opacity: 0.9;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(40, 49, 77, 0.4);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #28314d;
+}
+
+.birthday-card.today .delete-btn {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.birthday-card.today .delete-btn:hover {
+    color: white;
+}
+
+/* ==================== MODAL STYLES ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 49, 77, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #28314d;
+    margin-bottom: 12px;
+}
+
+.modal-text {
+    font-size: 16px;
+    color: rgba(40, 49, 77, 0.7);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-btn-primary {
+    background: #25D366;
+    color: white;
+}
+
+.modal-btn-primary:hover {
+    background: #20BA5A;
+}
+
+.modal-btn-secondary {
+    background: rgba(40, 49, 77, 0.1);
+    color: #28314d;
+}
+
+.modal-btn-secondary:hover {
+    background: rgba(40, 49, 77, 0.15);
+}
+
+/* ==================== RESPONSIVE STYLES ==================== */
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .message-section {
+        position: static;
+    }
+
+    .messages-wall {
+        columns: 1;
+    }
+
+    /* Slightly taller cells on medium screens for readability */
+    .calendar-grid {
+      --cell-ratio: 1.3;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .calendar-grid {
+        max-width: 100%;
+      /* Back to near-square on small screens */
+      --cell-ratio: 1.05;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .birthday-search {
+        max-width: 100%;
+    }
+}
+
+  /* Larger desktops: make cells even shorter to reduce total height */
+  @media (min-width: 1280px) {
+    .calendar-grid {
+      --cell-ratio: 2;
+    }
+  }

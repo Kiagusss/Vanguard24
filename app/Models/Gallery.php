@@ -26,16 +26,16 @@ class Gallery extends Model
         'is_achievement' => 'boolean',
     ];
 
+      protected $appends = ['file_url'];
+
     /**
      * Accessor untuk menampilkan URL file yang tersimpan di storage/public/galleries.
      */
-    public function getFileUrlAttribute(): ?string
+   public function getFileUrlAttribute()
     {
-        if (! $this->file) {
-            return null;
-        }
-
-        return Storage::url($this->file);
+        return $this->file
+            ? asset('storage/' . $this->file)
+            : null;
     }
 
     /**
